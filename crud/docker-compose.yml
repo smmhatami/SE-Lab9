@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  
+  postgres_db:
+    image: postgres:14.1-alpine
+    environment:
+      - POSTGRES_DB=testii
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5435:5432
+    volumes: 
+      - project_db:/var/lib/postgresql/data
+    networks: 
+      - "api.network"
+
+
+  backend:
+    build:
+      context: ./backend/
+    depends_on:
+      - postgres_db
+    ports:
+      - "8080"
+    restart: always
+    networks: 
+      - "api.network"
+    deploy:
+      replicas: 4
+
+
+  reverse_proxy:
+    build:
+      context: ./nginx/
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    networks: 
+      - "api.network"
+    volumes:
+      - static_files:/usr/share/nginx/html/static
+
+  
+volumes:
+  project_db: 
+  static_files:
+
+networks: 
+    api.network:
