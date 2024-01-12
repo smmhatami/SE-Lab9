@@ -46,3 +46,8 @@
 
 ![Screenshot from 2024-01-12 23-13-17](https://github.com/smmhatami/SE-Lab9/assets/62210297/f718192f-bc83-44de-a9b5-d16ebee1a9e4)
 
+با بالا رفتن فشار وارده به backend پروژه ی ما کافیست که با توجه به میزان فشار تعداد نمونه های در حال اجرای سرور را افزایش دهیم. به این منظور در فایل docker-compose تعداد replicas را تغییر می دهیم. 
+
+![Screenshot from 2024-01-12 23-18-30](https://github.com/smmhatami/SE-Lab9/assets/62210297/68a4d77f-a4e1-4a3b-9270-bed97b520801)
+
+## پرسش ها 
