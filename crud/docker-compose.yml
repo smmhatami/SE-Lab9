@@ -27,7 +27,7 @@ services:
     networks: 
       - "api.network"
     deploy:
-      replicas: 4
+      replicas: 6
 
 
   reverse_proxy:
